@@ -22,7 +22,12 @@
 # friends in the same file that sets TARGET_CC...
 
 ifeq ($(strip $(TARGET_TOOLS_PREFIX)),)
-LINARO_COMPILERCHECK_CC := prebuilts/gcc/$(HOST_PREBUILT_TAG)/arm/arm-linux-androideabi-4.6/bin/arm-linux-androideabi-gcc$(HOST_EXECUTABLE_SUFFIX)
+ifeq ($(strip $(TARGET_GCC_VERSION)),)
+GCC_VERSION := 4.6
+else
+GCC_VERSION := 4.7
+endif
+LINARO_COMPILERCHECK_CC := prebuilts/gcc/$(HOST_PREBUILT_TAG)/arm/arm-linux-androideabi-$(GCC_VERSION)/bin/arm-linux-androideabi-gcc$(HOST_EXECUTABLE_SUFFIX)
 else
 LINARO_COMPILERCHECK_CC := $(TARGET_TOOLS_PREFIX)gcc$(HOST_EXECUTABLE_SUFFIX)
 endif

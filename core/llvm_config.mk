@@ -17,7 +17,13 @@ CLANG_CONFIG_EXTRA_CFLAGS := \
   -D__compiler_offsetof=__builtin_offsetof \
 
 CLANG_CONFIG_UNKNOWN_CFLAGS := \
-  -funswitch-loops
+  -funswitch-loops \
+  -fgcse-after-reload \
+  -fipa-cp-clone \
+  -fpredictive-commoning \
+  -fsched-spec-load \
+  -funswitch-loops \
+  -fvect-cost-model
 
 ifeq ($(TARGET_ARCH),arm)
   RS_TRIPLE := armv7-none-linux-gnueabi

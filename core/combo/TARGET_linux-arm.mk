@@ -71,13 +71,24 @@ TARGET_NO_UNDEFINED_LDFLAGS := -Wl,--no-undefined
 TARGET_arm_CFLAGS :=    -O2 \
                         -fomit-frame-pointer \
                         -fstrict-aliasing    \
-                        -funswitch-loops
+                        -funswitch-loops \
+                        -fgcse-after-reload \
+                        -fipa-cp-clone \
+                        -fpredictive-commoning \
+                        -fsched-spec-load \
+                        -fvect-cost-model
 
 # Modules can choose to compile some source as thumb.
 TARGET_thumb_CFLAGS :=  -mthumb \
                         -Os \
                         -fomit-frame-pointer \
-                        -fno-strict-aliasing
+                        -fno-strict-aliasing \
+                        -fgcse-after-reload \
+                        -fipa-cp-clone \
+                        -fpredictive-commoning \
+                        -fsched-spec-load \
+                        -funswitch-loops \
+                        -fvect-cost-model
 
 # Set FORCE_ARM_DEBUGGING to "true" in your buildspec.mk
 # or in your environment to force a full arm build, even for
