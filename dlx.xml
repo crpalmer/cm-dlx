@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <remote  name="github"
+           fetch=".."
+           review="review.cyanogenmod.org" />
+
+  <default revision="refs/heads/cm-11.0"
+           remote="github"
+           sync-c="true"
+           sync-j="4" />
+
+  <project path="vendor/htc" name="TheMuppets/proprietary_vendor_htc" />
+  <project path="device/htc/dlx" name="CyanogenMod/android_device_htc_dlx" />
+  <project path="device/htc/msm8960-common" name="CyanogenMod/android_device_htc_msm8960-common" />
+</manifest>
